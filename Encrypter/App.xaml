@@ -1,0 +1,19 @@
+﻿<Application x:Class="Encrypter.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Encrypter"
+             xmlns:view="clr-namespace:Encrypter.MVVM.Views"
+             xmlns:viewModel="clr-namespace:Encrypter.MVVM.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>                
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type viewModel:EncryptionViewModel}">
+                <view:EncryptionView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>         
+    </Application.Resources>
+</Application>
