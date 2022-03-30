@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekte\\Encrypter\\Encrypter.csproj",
+      "projectUniqueName": "C:\\Projekte\\Encrypter\\Encrypter\\Encrypter.csproj",
       "projectName": "Encrypter",
-      "projectPath": "C:\\Projekte\\Encrypter\\Encrypter.csproj",
+      "projectPath": "C:\\Projekte\\Encrypter\\Encrypter\\Encrypter.csproj",
       "packagesPath": "C:\\Users\\miche_vryn520\\.nuget\\packages\\",
-      "outputPath": "C:\\Projekte\\Encrypter\\obj\\",
+      "outputPath": "C:\\Projekte\\Encrypter\\Encrypter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Encrypter.MVVM.Views"
+             xmlns:vd="clr-namespace:Encrypter.MVVM.ValidationRules"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              FontFamily="Microsoft YaHei UI"
@@ -12,6 +13,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -19,7 +21,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0" 
+        <StackPanel Grid.Column="0" Grid.Row="0"
+                    Grid.ColumnSpan="2"
                     Orientation="Horizontal">
             <ComboBox Margin="10">
                 <ComboBoxItem Content="Caesar-Chiffre"
@@ -28,12 +31,22 @@
             <TextBlock Text="Schlüssel:" Margin="10"
                        VerticalAlignment="Center"/>
             <TextBox Margin="10" MinWidth="50"
-                     Text="{Binding CaesarKey}"/>            
+                     >
+                <TextBox.Text>
+                    <Binding Path="CaesarKey">
+                        <Binding.ValidationRules>
+                            <vd:CaesarKeyValidation/>
+                        </Binding.ValidationRules>                        
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
         <TextBox Grid.Column="0" Grid.Row="1"
+                 Grid.ColumnSpan="2"
                  Margin="10" MinHeight="100"
                  Text="{Binding InputText}"/>
         <StackPanel Grid.Column="0" Grid.Row="2"
+                    Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
             <Button Margin="10" Height="30" Width="110"
@@ -51,9 +64,16 @@
                     BorderBrush="#707070"
                     Content="Entschlüsseln"
                     Background="#2d2d2d"
-                    />
+                    Command="{Binding DecryptionCommand}"
+                    />            
         </StackPanel>
+        <Button Grid.Column="1" Grid.Row="2"
+                VerticalAlignment="Center"
+                Content="Switch"
+                Margin="10"
+                Command="{Binding SwitchCommand}"/>
         <TextBox Grid.Row="3" Grid.Column="0"
+                 Grid.ColumnSpan="2"
                  Margin="10" IsReadOnly="True"
                  Background="LightGray"
                  MinHeight="100"

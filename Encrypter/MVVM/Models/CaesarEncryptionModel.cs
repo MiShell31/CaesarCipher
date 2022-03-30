@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Encrypter.MVVM.Models
 {
-    class EncryptionModel
+    class CaesarEncryptionModel
     {
-        //private string InputText { get; set; }
-        //private string OutputText { get; set; }
-
         public string CaesarEncrypt(string inputText, int key) 
         {
             if(inputText == null) { return inputText; }
@@ -20,6 +17,18 @@ namespace Encrypter.MVVM.Models
                 encryptedText += (char)((inputText[i] + key) % 256);
             }
             return encryptedText;
+        }
+
+        public string CaesarDecrypt(string inputText, int key)
+        {
+            if(inputText == null) { return inputText; }
+            string decryptedText = null;
+            key = 256 - key; 
+            for(int i = 0; i < inputText.Length; i++)
+            {
+                decryptedText += (char)((inputText[i] + key) % 256);
+            }
+            return decryptedText;
         }
     }
 }

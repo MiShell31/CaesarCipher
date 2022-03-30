@@ -37,13 +37,26 @@ namespace Encrypter.MVVM.ViewModels
         }
 
         public RelayCommand EncryptionCommand { get; set; }
+        public RelayCommand DecryptionCommand { get; set; }
+        public RelayCommand SwitchCommand { get; set; }
 
         public EncryptionViewModel()
         {
-            EncryptionModel EM = new EncryptionModel();
+            CaesarEncryptionModel EM = new CaesarEncryptionModel();
             EncryptionCommand = new RelayCommand(o =>
             {
                 OutputText = EM.CaesarEncrypt(InputText, CaesarKey);
+            });
+            DecryptionCommand = new RelayCommand(o =>
+            {
+                OutputText = EM.CaesarDecrypt(InputText, CaesarKey);
+            });
+
+            SwitchCommand = new RelayCommand(o =>
+            {
+                string a = InputText;
+                InputText = OutputText;
+                OutputText = a;
             });
         }
     }

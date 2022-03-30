@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Projekte\Encrypter\obj\Debug\net5.0-windows\
+C:\Projekte\Encrypter\Encrypter\obj\Debug\net5.0-windows\
 Encrypter
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Projekte\Encrypter\App.xaml
+C:\Projekte\Encrypter\Encrypter\App.xaml
 2-100847610
 
-91214391116
+10-485660883
 193-1891726104
 MainWindow.xaml;MVVM\Views\EncryptionView.xaml;
 
