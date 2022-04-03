@@ -7,9 +7,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>                
-            </ResourceDictionary.MergedDictionaries>
-            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\TextBoxError.xaml"/>
+            </ResourceDictionary.MergedDictionaries>            
             <DataTemplate DataType="{x:Type viewModel:EncryptionViewModel}">
                 <view:EncryptionView/>
             </DataTemplate>

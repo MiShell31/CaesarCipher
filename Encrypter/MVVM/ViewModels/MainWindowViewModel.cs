@@ -16,7 +16,7 @@ namespace Encrypter.MVVM.ViewModels
             {
                 _currentView = value;
                 OnPropertyChanged();
-            } 
+            }
         }
         public EncryptionViewModel EncryptionVM;
         public MainWindowViewModel()

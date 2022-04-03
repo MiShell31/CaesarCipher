@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Encrypter.MVVM.Views"
-             xmlns:vd="clr-namespace:Encrypter.MVVM.ValidationRules"
+             xmlns:local="clr-namespace:Encrypter.MVVM.Views" 
+             xmlns:viewmodels="clr-namespace:Encrypter.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:EncryptionViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              FontFamily="Microsoft YaHei UI"
@@ -31,14 +31,10 @@
             <TextBlock Text="Schlüssel:" Margin="10"
                        VerticalAlignment="Center"/>
             <TextBox Margin="10" MinWidth="50"
-                     >
-                <TextBox.Text>
-                    <Binding Path="CaesarKey">
-                        <Binding.ValidationRules>
-                            <vd:CaesarKeyValidation/>
-                        </Binding.ValidationRules>                        
-                    </Binding>
-                </TextBox.Text>
+                     Text="{Binding CaesarKey, 
+                ValidatesOnExceptions=True,
+                UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource TextBoxError}">
             </TextBox>
         </StackPanel>
         <TextBox Grid.Column="0" Grid.Row="1"

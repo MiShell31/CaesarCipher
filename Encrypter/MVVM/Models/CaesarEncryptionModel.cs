@@ -10,7 +10,7 @@ namespace Encrypter.MVVM.Models
     {
         public string CaesarEncrypt(string inputText, int key) 
         {
-            if(inputText == null) { return inputText; }
+            if(inputText == null) { return inputText; }            
             string encryptedText = null;
             for (int i = 0; i < inputText.Length; i++)
             {

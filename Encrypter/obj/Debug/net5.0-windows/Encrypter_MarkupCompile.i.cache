@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Projekte\Encrypter\Encrypter\App.xaml
-2-100847610
+3-1412973935
 
-121300723132
+11749150615
 193-1891726104
-MainWindow.xaml;MVVM\Views\EncryptionView.xaml;
+MainWindow.xaml;MVVM\Views\EncryptionView.xaml;Styles\TextBoxError.xaml;
 
-False
+True
 

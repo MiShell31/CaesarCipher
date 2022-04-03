@@ -1,4 +1,10 @@
 ﻿using Encrypter.MVVM.Models;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Encrypter.MVVM.ViewModels
 {
@@ -14,14 +20,28 @@ namespace Encrypter.MVVM.ViewModels
                 OnPropertyChanged();
             }
         }
-        private int _caesarKey = 3;
-        public int CaesarKey
+
+        private bool IsNumber(string wert)
         {
-            get { return _caesarKey; }
-            set
+            Regex notNumbers = new Regex(@"[\D]+");
+            if (notNumbers.IsMatch(wert)) { return false; }
+            else return true;
+        }
+
+        private string _caesarKey = "3";
+        public string CaesarKey
+        {
+           get { return _caesarKey; }
+           set
             {
+                _propertyNameToErrorsDictionary.Remove(nameof(CaesarKey));
                 _caesarKey = value;
-                OnPropertyChanged();
+                
+                if (!IsNumber(_caesarKey))
+                {
+                    AddError(nameof(CaesarKey), "Der Schlüssel darf nur eine ganze, positive Zahl sein.");
+                }
+                OnPropertyChanged(nameof(CaesarKey));
             }
         }
 
@@ -45,11 +65,22 @@ namespace Encrypter.MVVM.ViewModels
             CaesarEncryptionModel EM = new CaesarEncryptionModel();
             EncryptionCommand = new RelayCommand(o =>
             {
-                OutputText = EM.CaesarEncrypt(InputText, CaesarKey);
+                int schlüssel = Int32.Parse(CaesarKey);
+                OutputText = EM.CaesarEncrypt(InputText, schlüssel);
+                
             });
             DecryptionCommand = new RelayCommand(o =>
             {
-                OutputText = EM.CaesarDecrypt(InputText, CaesarKey);
+                try
+                {
+                    int schlüssel = Int32.Parse(CaesarKey);
+                    OutputText = EM.CaesarDecrypt(InputText, schlüssel);
+                }
+                catch
+                {
+                    return;
+                }
+                
             });
 
             SwitchCommand = new RelayCommand(o =>
