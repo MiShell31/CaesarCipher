@@ -1,10 +1,7 @@
 ﻿using Encrypter.MVVM.Models;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace Encrypter.MVVM.ViewModels
 {
@@ -41,6 +38,7 @@ namespace Encrypter.MVVM.ViewModels
                 {
                     AddError(nameof(CaesarKey), "Der Schlüssel darf nur eine ganze, positive Zahl sein.");
                 }
+                else if(_caesarKey.Equals("")) { AddError(nameof(CaesarKey), "Bitte gib einen Schlüssel ein."); }
                 OnPropertyChanged(nameof(CaesarKey));
             }
         }
@@ -65,8 +63,16 @@ namespace Encrypter.MVVM.ViewModels
             CaesarEncryptionModel EM = new CaesarEncryptionModel();
             EncryptionCommand = new RelayCommand(o =>
             {
-                int schlüssel = Int32.Parse(CaesarKey);
-                OutputText = EM.CaesarEncrypt(InputText, schlüssel);
+                try
+                {
+                    int schlüssel = Int32.Parse(CaesarKey);
+                    OutputText = EM.CaesarEncrypt(InputText, schlüssel);
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Bitte überprüfe deine Eingaben: " + e.Message);
+                }
+                
                 
             });
             DecryptionCommand = new RelayCommand(o =>
@@ -76,11 +82,10 @@ namespace Encrypter.MVVM.ViewModels
                     int schlüssel = Int32.Parse(CaesarKey);
                     OutputText = EM.CaesarDecrypt(InputText, schlüssel);
                 }
-                catch
+                catch(Exception e)
                 {
-                    return;
-                }
-                
+                    MessageBox.Show("Bitte überprüfe deine Eingaben: " + e.Message);
+                }                
             });
 
             SwitchCommand = new RelayCommand(o =>
