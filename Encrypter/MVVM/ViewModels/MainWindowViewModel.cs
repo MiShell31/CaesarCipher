@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Encrypter.MVVM.ViewModels
+﻿namespace Encrypter.MVVM.ViewModels
 {
     class MainWindowViewModel : ObservableObject
     {
+        /* Solely used for Content Display */
         private object _currentView { get; set; }
         public object CurrentView
         {

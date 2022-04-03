@@ -9,8 +9,13 @@ namespace Encrypter.MVVM
 {
     class ObservableObject : INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        /* ViewModelBase-Class
+         Implements INotifyPropertyChanged for dynamic Data Binding
+         Implements INotifyDataErrorInfo for Data Validation */
+
+        // Maps list of Errors to property
         public readonly Dictionary<string, List<string>> _propertyNameToErrorsDictionary = new Dictionary<string, List<string>>();
-        public bool HasErrors => _propertyNameToErrorsDictionary.Any();
+        public bool HasErrors => _propertyNameToErrorsDictionary.Any(); // Evaluates to true if the dictionary isn't empty
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
@@ -18,6 +23,7 @@ namespace Encrypter.MVVM
 
         public void AddError(string propertyName, string errorMessage)
         {
+            // Adds an Error and, if necessary, the property itself (Key) to the dict 
             if (!_propertyNameToErrorsDictionary.ContainsKey(propertyName))
             {
                 _propertyNameToErrorsDictionary.Add(propertyName, new List<string>());
