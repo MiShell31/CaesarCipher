@@ -52,7 +52,7 @@ namespace CaesarChiffre.WPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CaesarChiffre.WPF;V1.0.0.0;component/controls/chiffrecontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CaesarChiffre.WPF;component/controls/chiffrecontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\ChiffreControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

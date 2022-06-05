@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net5.0-windows7.0": {
       "coverlet.collector/3.0.2": {
         "type": "package",
         "build": {
@@ -1253,6 +1253,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "CaesarChiffre.WPF/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CaesarChiffre.WPF.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CaesarChiffre.WPF.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -4942,10 +4955,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "CaesarChiffre.WPF/1.0.0": {
+      "type": "project",
+      "path": "../CaesarChiffre.WPF/CaesarChiffre.WPF.csproj",
+      "msbuildProject": "../CaesarChiffre.WPF/CaesarChiffre.WPF.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    "net5.0-windows7.0": [
+      "CaesarChiffre.WPF >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "NUnit >= 3.13.1",
       "NUnit3TestAdapter >= 3.17.0",
@@ -4974,16 +4993,20 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "projectReferences": {}
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\Projekte\\CaesarChiffre\\CaesarChiffre.WPF\\CaesarChiffre.WPF.csproj": {
+              "projectPath": "C:\\Projekte\\CaesarChiffre\\CaesarChiffre.WPF\\CaesarChiffre.WPF.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -4993,8 +5016,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",

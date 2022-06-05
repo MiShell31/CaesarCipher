@@ -1,4 +1,3 @@
-C:\Projekte\CaesarChiffre\CaesarChiffre.WPF\obj\Debug\net5.0-windows\CaesarChiffre.WPF.csproj.AssemblyReference.cache
 C:\Projekte\CaesarChiffre\CaesarChiffre.WPF\obj\Debug\net5.0-windows\Styles\Common.baml
 C:\Projekte\CaesarChiffre\CaesarChiffre.WPF\obj\Debug\net5.0-windows\Controls\ControlBar.g.cs
 C:\Projekte\CaesarChiffre\CaesarChiffre.WPF\obj\Debug\net5.0-windows\MainWindow.g.cs
