@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Colors-->
+    <Color x:Key="PrimaryColor_Background">
+        #353839
+    </Color>
+    <Color x:Key="PrimaryColor_Foreground">
+        #ffffff
+    </Color>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource PrimaryColor_Background}"/>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource PrimaryColor_Foreground}"/>
+    
+    <!--Controls-->
+    <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="{x:Type TextBlock}">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Microsoft Yahei UI"/>
+        </Style.Setters>
+    </Style>
+    <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Microsoft Yahei UI"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="ToolTip" Value="Gib einen Wert von 0 bis 255 ein."/>
+            </Trigger>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip" Value="Fehlerhafte Eingabe: Gib eine ganze Zahl zwischen 0 und 255 ein."/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="ModusButton" BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="{x:Type ToggleButton}">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+            <Setter Property="Content" Value="Entschlüsseln"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding Foreground}"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource BackgroundBrush}"/>
+                <Setter Property="Background" Value="{StaticResource ForegroundBrush}"/>
+                <Setter Property="Content" Value="Verschlüsseln"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+                <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+                <Setter Property="Content" Value="Entschlüsseln"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
